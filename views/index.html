@@ -1,0 +1,46 @@
+{{define "title"}}{{.title}}{{end}}
+{{define "scripts"}}{{end}}
+{{define "content"}}
+<div class="row">
+  <div class="col">
+    <h3>{{.page_tittle}}</h3>
+  </div>
+  <div class="py-3">
+    <form class="d-flex" role="search">
+      <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+      <button class="btn btn-outline-success" type="submit">Search</button>
+    </form>
+  </div>
+  <div class="container">
+
+    <div class="row">
+      {{if eq (len .blogs) 0}}
+      <div class="center">
+        <p> Nothing to see here </p>
+      </div>
+      {{end}}
+      {{range .blogs}}
+      <div class="col-sm-4 col-md-6 py-3">
+        <div class="card">
+          <div class="card-body">
+            <div class="row">
+              <div class="col-md-4">
+                <img
+                  src="https://images.unsplash.com/photo-1496449903678-68ddcb189a24?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2370&q=80"
+                  class="card-img-top" alt="{{.Title}}">
+              </div>
+              <div class="col-md-8">
+                <h5 class="card-title"><a href="/blogs/{{.Id}}">{{.Title}}</a></h5>
+                <p class="card-text">{{.Tags}}</p>
+                <!-- <a href="/blog/show?id={{.Id}}" class="btn btn-primary">Read More</a> -->
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      {{end}}
+
+    </div>
+  </div>
+</div>
+{{end}}

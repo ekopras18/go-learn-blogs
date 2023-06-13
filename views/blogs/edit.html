@@ -1,0 +1,43 @@
+{{define "title"}}{{.title}}{{end}}
+{{define "scripts"}}{{end}}
+{{define "content"}}
+<div aria-label="breadcrumb">
+  <ol class="breadcrumb">
+    <li class="breadcrumb-item"><a href="/">Home</a></li>
+    <li class="breadcrumb-item active" aria-current="page">{{.page_tittle}}</li>
+  </ol>
+</div>
+<div class="row">
+  <div class="col-md-12">
+    <form action="/blogs/{{ .blog.Id }}" method="post">
+      <input type="hidden" name="id" value="{{ .blog.Id }}">
+      <div class="mb-3">
+        <label class="form-label">Title</label>
+        <input type="text" class="form-control" id="title" name="title" value="{{.blog.Title}}"
+          placeholder="Masukin Title" autocomplete="off">
+      </div>
+      <div class="mb-3">
+        <label class="form-label">Author</label>
+        <input type="text" class="form-control" id="author" name="author" value="{{.blog.Author}}"
+          placeholder="Masukin Author" autocomplete="off">
+      </div>
+      <div class="mb-3">
+        <label class="form-label">Tags</label>
+        <input type="text" class="form-control" id="tags" name="tags" value="{{.blog.Tags}}" placeholder="Masukin Tags"
+          autocomplete="off">
+      </div>
+      <div class="mb-3">
+        <label class="form-label">Content</label>
+        <textarea class="form-control" id="content" name="content" cols="30"
+          rows="10">{{ printf "%s" .blog.Content }}</textarea>
+      </div>
+
+      <div class="float-end">
+        <a href="/blogs" class="btn btn-sm btn-secondary"> Back </a>
+        <button type="submit" class="btn btn-sm btn-primary"> Save </button>
+      </div>
+    </form>
+  </div>
+</div>
+
+{{end}}

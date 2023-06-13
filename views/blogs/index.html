@@ -1,0 +1,44 @@
+{{define "title"}}{{.title}}{{end}}
+{{define "scripts"}}{{end}}
+{{define "content"}}
+<div aria-label="breadcrumb">
+  <ol class="breadcrumb">
+    <li class="breadcrumb-item"><a href="/">Home</a></li>
+    <li class="breadcrumb-item active" aria-current="page">{{.page_tittle}}</li>
+  </ol>
+</div>
+<div class="row">
+  <div class="col-md-11">
+
+  </div>
+  <div class="col-md-1 text-right">
+    <a href="/blogs/create" class="btn btn-primary">Create</a>
+  </div>
+  <div class="col-md-12">
+    <table class="table">
+      <thead>
+        <tr>
+          <th width="3%">No</th>
+          <th>Name</th>
+          <th width="15%">Action</th>
+        </tr>
+      </thead>
+      <tbody class="table-group-divider">
+        {{range .blogs}}
+        <tr>
+          <th scope="row">{{.Id}}</th>
+          <td><a href="/blogs/{{.Id}}">{{.Title}}</a></td>
+          <td>
+            <a href="/blogs/{{.Id}}/edit" class="btn btn-sm btn-warning flex">Edit</a>
+            <form action="/blogs/{{.Id}}" method="post">
+              <input type="hidden" name="_method" value="DELETE">
+            <button class="btn btn-sm btn-danger" type="submit">Delete</button>
+            </form>
+          </td>
+        </tr>
+        {{end}}
+      </tbody>
+    </table>
+  </div>
+</div>
+{{end}}
