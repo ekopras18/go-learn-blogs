@@ -74,6 +74,7 @@ func UploadHandler(w http.ResponseWriter, r *http.Request) {
 		http.Error(w, err.Error(), http.StatusInternalServerError)
 		return
 	}
+	// fmt.Println(filename)
 	response, _ := json.Marshal(map[string]string{"location": filename})
 	w.Header().Set("Content-Type", "application/json")
 	w.WriteHeader(http.StatusCreated)
@@ -81,7 +82,7 @@ func UploadHandler(w http.ResponseWriter, r *http.Request) {
 }
 
 func ServeImages(w http.ResponseWriter, r *http.Request) {
-	fmt.Println(r.URL)
+	// fmt.Println(r.URL)
 	fs := http.StripPrefix("/public/images/", http.FileServer(http.Dir("./public/images")))
 	fs.ServeHTTP(w, r)
 }

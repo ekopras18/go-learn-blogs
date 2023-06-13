@@ -5,3 +5,26 @@
 - [x] Middleware
 - [ ] Dockerisation
 - [ ] Darkmode UI
+
+## How to run
+
+```bash
+# Clone this repository
+$ git clone
+
+# Go into the repository
+$ cd go-learn-blogs
+
+# Install dependencies
+$ go mod tidy
+
+# Run
+$ go run . 
+
+# or Run with hot reload (install air first)
+$ go install github.com/cosmtrek/air@latest
+
+# then
+$ air .
+
+```
