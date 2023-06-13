@@ -10,7 +10,7 @@
 
 ```bash
 # Clone this repository
-$ git clone
+$ git clone https://github.com/ekopras18/go-learn-blogs.git
 
 # Go into the repository
 $ cd go-learn-blogs
